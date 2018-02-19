@@ -3,8 +3,7 @@ echo "sets up your local hostname for træfik "
 
 echo "What should be the url of your environment? (example: traffik.dev.local)"
 read domain
-# cp example-files/example-docker-compose.yml docker-compose.yml
-# cp example-files/example-traefik.toml traefik.toml
+
 sed  "s/<insert-local-hostname>/$domain/g" example-files/example-docker-compose.yml > docker-compose.yml
 sed  "s/<insert-local-hostname>/$domain/g" example-files/example-traefik.toml > traefik.toml
 
