@@ -1,0 +1,34 @@
+
+defaultEntryPoints = ["http"]
+
+# The following line tells Traefik that it should trust invalid certificates from the backends,
+# when the backends are using HTTPS. This is required in our development environment for address service at the moment, because it requires HTTPS.
+InsecureSkipVerify = true
+
+#debug = true
+#logLevel = "INFO"
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+
+################################################################
+# Web configuration backend
+################################################################
+[web]
+address = ":8088"
+defaultEntryPoints = ["http"]
+
+################################################################
+# Docker configuration backend
+################################################################
+[docker]
+endpoint = "unix:///var/run/docker.sock"
+domain = "traffik.dev.local"
+watch = true
+
+# Expose containers by default in traefik
+exposedbydefault = false
+
+# Use Swarm Mode services as data provider
+swarmmode = false

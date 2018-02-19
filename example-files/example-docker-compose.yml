@@ -1,0 +1,24 @@
+version: '3.5'
+
+services:
+  traefik:
+    image: traefik
+    hostname: <insert-local-hostname>
+    networks:
+      - traefik_nw
+    ports:
+      - 80:80
+      - 443:443
+      - 8088
+    volumes:
+      - ./traefik.toml:/etc/traefik/traefik.toml
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - "traefik.backend=traefik"
+      - "traefik.frontend.rule=Host:<insert-local-hostname>"
+      - "traefik.port=8088"
+      - "traefik.enable=true"
+    restart: always
+networks:
+  traefik_nw: 
+    name: traefik_nw
