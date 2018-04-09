@@ -18,6 +18,10 @@ Either put one in the files and copy them to your folder without example- in fro
 
 run `docker-compose up` and visit the url you gave. You should now have the traefik interface on the url, and a new network "traefik_nw" for your services to use.
 
+## Do this (WINDOWS)
+
+Copy example-.env from /example-files to the root of your directory and make sure you have docker-for-windows installed on your machine.
+
 
 ## It does
 
