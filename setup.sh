@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "sets up your local hostname for træfik "
 
-domain="traeffik.dev.wag.tools"
+domain="<some-domain>"
 
 sed  "s/<insert-local-hostname>/$domain/g" example-files/example-docker-compose.yml > docker-compose.yml
 sed  "s/<insert-local-hostname>/$domain/g" example-files/example-traefik.toml > traefik.toml
